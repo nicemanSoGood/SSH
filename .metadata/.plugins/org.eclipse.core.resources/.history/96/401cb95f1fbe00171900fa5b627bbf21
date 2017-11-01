@@ -1,0 +1,8 @@
+package com.ihtc.dao;
+
+public interface StudentDao {
+
+	boolean myInsert();
+	List<Student> selectAll();
+	
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.ihtc.dao.StudentDao"/>
+<fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
+<fullyQualifiedTypeName name="com.opensymphony.xwork2.ModelDriven"/>
+<fullyQualifiedTypeName name="com.ihtc.bean.Student"/>
+<fullyQualifiedTypeName name="com.ihtc.service.StudentService"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionContext"/>
+<fullyQualifiedTypeName name="com.opensymphony.xwork2.util.ValueStack"/>
+</qualifiedTypeNameHistroy>

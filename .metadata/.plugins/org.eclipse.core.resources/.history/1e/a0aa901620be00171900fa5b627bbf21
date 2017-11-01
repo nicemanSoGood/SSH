@@ -1,0 +1,14 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import com.ihtc.bean.Student;
+
+public interface StudentDao {
+
+	int myInsert(Student student);
+	List<Student> selectAll();
+	int update(Student student);
+	Student findById(Integer sid);
+	
+}

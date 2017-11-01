@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+E:\Object\GitHub\framework_integration\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3832643836.index
+2217098398.index
+3327082527.index
+4028517842.index
+1654356081.index
+947768767.index

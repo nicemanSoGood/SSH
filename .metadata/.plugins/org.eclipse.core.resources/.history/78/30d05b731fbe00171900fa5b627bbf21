@@ -1,0 +1,13 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import com.ihtc.bean.Student;
+
+public interface StudentDao {
+
+	boolean myInsert();
+	List<Student> selectAll();
+	int update();
+	
+}

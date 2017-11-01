@@ -1,0 +1,35 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+
+import com.ihtc.bean.Student;
+
+public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
+
+	@Override
+	public boolean myInsert(Student student) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Student> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(Student student) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Student findById(Integer sid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

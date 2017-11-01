@@ -1,0 +1,36 @@
+package com.ihtc.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+import com.ihtc.bean.Student;
+
+public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao {
+
+	@Override
+	public boolean myInsert(Student student) {
+		Serializable sid = this.getHibernateTemplate().save(student);
+		return (Integer)sid > 0;
+	}
+
+	@Override
+	public List<Student> selectAll() {
+		this.getHibernateTemplate().find("from Student");
+		return null;
+	}
+
+	@Override
+	public int update(Student student) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Student findById(Integer sid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
