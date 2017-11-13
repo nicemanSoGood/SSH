@@ -1,0 +1,14 @@
+package com.ihtc.service;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import com.ihtc.bean.Customer;
+import com.ihtc.bean.PageBean;
+
+public interface CustomerService {
+	//分页业务方法
+	PageBean getPageBean(DetachedCriteria criteria, Integer currentPage, Integer pageSize);
+
+	void save(Customer customer);
+
+}

@@ -1,0 +1,43 @@
+package com.ihtc.dao;
+
+/*import java.util.List;*/
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.Customer;
+
+public class CustomerDaoImpl extends /*HibernateDaoSupport*/BaseDaoImpl<Customer> implements CustomerDao {
+/*
+	@Override
+	public Integer getTotalCount(DetachedCriteria criteria) {
+		
+		//设置查询的聚合函数，总记录数
+		criteria.setProjection(Projections.rowCount());
+		
+		@SuppressWarnings("unchecked")
+		List<Long> list = (List<Long>) this.getHibernateTemplate().findByCriteria(criteria);
+		//清空聚合函数
+		criteria.setProjection(null);
+		
+		if(list != null && list.size()>0){
+			Long count = list.get(0);
+			return count.intValue();
+		}
+		
+		return null;
+		
+	}
+
+	@Override
+	public List<Customer> getPageBean(DetachedCriteria criteria, int start, Integer pageSize) {
+
+		@SuppressWarnings("unchecked")
+		List<Customer> list = (List<Customer>) this.getHibernateTemplate().findByCriteria(criteria,start,pageSize);
+		
+		return list;
+	}
+*/
+}

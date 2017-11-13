@@ -1,0 +1,19 @@
+package com.ihtc.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.BaseDict;
+
+public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDao {
+
+	@Override
+	public List<BaseDict> getListByTypeCode(String dict_type_code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

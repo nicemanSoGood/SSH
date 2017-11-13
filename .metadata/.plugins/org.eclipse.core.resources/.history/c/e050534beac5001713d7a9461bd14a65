@@ -1,0 +1,12 @@
+package com.ihtc.dao;
+
+import com.ihtc.baseDao.BaseDao;
+import com.ihtc.bean.User;
+
+public interface UserDao extends BaseDao<User>{
+
+	User getByUserCode(String usercode);
+
+	boolean checkCode(String user_code);
+	
+}

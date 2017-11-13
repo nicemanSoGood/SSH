@@ -30,5 +30,6 @@
 			</form>
 		</s:iterator>
 	</table>
+	<a href="${pageContext.request.contextPath }/jsp/student.jsp">添加</a>
 </body>
 </html>

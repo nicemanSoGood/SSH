@@ -1,0 +1,61 @@
+package com.ihtc.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.BaseDict;
+
+public class BaseDictDaoImpl extends BaseDaoImpl<T> implements BaseDictDao {
+
+	@Override
+	public void save(BaseDict t) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(BaseDict t) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Serializable id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(BaseDict t) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public BaseDict getById(Serializable id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer getTotalCount(DetachedCriteria criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BaseDict> getPageList(DetachedCriteria criteria, Integer start, Integer pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BaseDict> getListByTypeCode(String dict_type_code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

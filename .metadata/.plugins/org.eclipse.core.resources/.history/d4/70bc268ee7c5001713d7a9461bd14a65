@@ -1,0 +1,39 @@
+package com.ihtc.service;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import com.ihtc.bean.User;
+import com.ihtc.dao.UserDao;
+import com.ihtc.utils.MDUtils;
+import com.ihtc.utils.State;
+@Transactional
+public class UserServiceImpl implements UserService {
+
+	private UserDao userDao;
+	
+	@Override
+	public void saveUser(User user) {
+		
+		User exsitU = userDao.getByUserCode(user.getUser_code());
+		
+		if(exsitU != null){
+			 
+		}
+		String password = user.getUser_password();
+		user.setUser_password(MDUtils.md5(password));
+		user.setUser_state((String)State.state());
+		
+		userDao.save(user);
+		
+	}
+
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	@Override
+	public boolean checkCode(String user_code) {
+		return userDao.checkCode(user_code);
+	}
+
+}

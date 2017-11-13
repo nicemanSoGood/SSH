@@ -1,0 +1,28 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.BaseDict;
+
+public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDao {
+
+	@Override
+	public List<BaseDict> getListByTypeCode(String dict_type_code) {
+
+		//采用criteria查询
+		//创建离线查询对象
+		DetachedCriteria criteria = DetachedCriteria.forClass(BaseDict.class);
+		//封装条件查询
+		criteria.add(Restrictions.eqOrIsNull("dict_type_code", dict_type_code));
+		//执行查询
+		List<BaseDict> list = (List<BaseDict>) this.getHibernateTemplate().findByCriteria(criteria);
+		
+		
+		return null;
+	}
+
+}

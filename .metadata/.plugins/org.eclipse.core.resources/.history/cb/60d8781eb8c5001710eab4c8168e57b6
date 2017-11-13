@@ -1,0 +1,82 @@
+package com.ihtc.action;
+
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+
+import com.ihtc.bean.LinkMan;
+import com.ihtc.bean.PageBean;
+import com.ihtc.service.LinkManService;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private LinkMan linkMan = new LinkMan();
+	
+	private LinkManService linkManService;
+
+	private Integer currentPage;
+	private Integer pageSize;
+
+	@Override
+	public LinkMan getModel() {
+		return linkMan;
+	}
+
+	public String add() throws Exception{
+		
+		linkManService.save(linkMan);
+		return "toList";
+		
+	}
+
+	public String list() throws Exception {
+		
+		//封装离线查询对象
+		DetachedCriteria criteria = DetachedCriteria.forClass(LinkMan.class);
+		//判断并封装对象
+		if(StringUtils.isNotBlank(linkMan.getLkm_name())){
+			criteria.add(Restrictions.like("lkm_name","%"+linkMan.getLkm_name()+"%"));
+		}
+		if(linkMan.getCustomer() != null && linkMan.getCustomer().getCust_name() != null && !(linkMan.getCustomer().getCust_name().trim().equals(""))){
+			criteria.add(Restrictions.eq("customer.cust_id", linkMan.getCustomer().getCust_id()));
+		}
+		
+		//1.调用service查询分页数据(PageBean)
+		PageBean pageBean = linkManService.getPageBean(criteria,currentPage,pageSize);
+		//2.将PageBean转发到页面
+		ActionContext.getContext().put("pageBean", pageBean);
+		
+		return "list";
+	}
+
+	public String toEdit() throws Exception{
+		System.out.println(linkMan.getLkm_id());
+		//调用Service,查询LinkMan
+		LinkMan linkman = linkManService.getById(linkMan.getLkm_id());
+		//将查询到的对象放入到request域中，转发到添加页面
+		ActionContext.getContext().put("linkMan", linkman);	
+		
+		return "add";
+	}
+
+	public void setLinkManService(LinkManService linkManService) {
+		this.linkManService = linkManService;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+	
+}

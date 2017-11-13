@@ -1,0 +1,80 @@
+package com.ihtc.action;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.ihtc.bean.User;
+import com.ihtc.service.UserService;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class UserAction extends ActionSupport implements ModelDriven<User> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User user = new User();
+	
+	@Override
+	public User getModel() {
+		return user;
+	}
+
+	private UserService userService;
+
+	public String login() throws Exception{
+		User exitUser = userService.login(user);
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		String vcode = (String) session.getAttribute("validateCode");
+		if(exitUser == null || !vcode.equalsIgnoreCase(viCode)){
+			//如果用户不存在跳转登入页面
+			return "login";
+		}else{
+			ServletActionContext.getRequest().getSession().setAttribute("existUser",exitUser);
+		}
+		
+		return "loginOk";
+	}
+	
+	public String regist() throws Exception{
+		
+		//调用service保存用户
+		userService.saveUser(user);
+		
+		return "toHome";
+		
+	}
+	
+	public String checkCode() throws Exception {
+
+		// 查询注册的名字
+		String user_code = user.getUser_code();
+		boolean boo = userService.checkCode(user_code);
+		HttpServletResponse resp = ServletActionContext.getResponse();
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter printWriter = resp.getWriter();
+		if (boo) {
+			// 不存在可以注册
+			printWriter.print("yes");
+
+		} else {
+			// 存在不能注册
+			printWriter.print("no");
+		}
+		
+		return NONE;
+
+	}
+	
+	
+
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	
+}

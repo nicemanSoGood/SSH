@@ -1,0 +1,12 @@
+package com.ihtc.service;
+
+import com.ihtc.bean.LinkMan;
+
+public class LinkManService {
+
+	public void save(LinkMan linkMan) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

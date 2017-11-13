@@ -1,0 +1,107 @@
+package com.ihtc.action;
+
+import java.io.File;
+
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+
+import com.ihtc.bean.Customer;
+import com.ihtc.bean.PageBean;
+import com.ihtc.service.CustomerService;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
+
+	private Customer customer = new Customer();
+	
+	private CustomerService customerService;
+	
+	//上传文件对象
+	private File file;
+	//文件名
+	private String fileFileName;
+	//文件类型
+	private String fileContentType;
+	
+	private Integer currentPage;
+	private Integer pageSize;
+
+	public String list() throws Exception {
+		
+		//封装离线查询对象
+		DetachedCriteria criteria = DetachedCriteria.forClass(Customer.class);
+		//判断并封装对象
+		if(StringUtils.isNotBlank(customer.getCust_name())){
+			criteria.add(Restrictions.like("cust_name","%"+customer.getCust_name()+"%"));
+		}
+		
+		//1.调用service查询分页数据(PageBean)
+		PageBean pageBean = customerService.getPageBean(criteria,currentPage,pageSize);
+		//2.将PageBean转发到页面
+		ActionContext.getContext().put("pageBean", pageBean);
+		
+		return "list";
+	}
+	
+	public String add() throws Exception {
+		
+		if(file != null){
+			
+			System.out.println(fileFileName);
+			System.out.println(fileContentType);
+			
+			file.renameTo(new File("E:/haha.jpg"));
+			
+			customerService.save(customer);
+			
+		}
+		
+		return "toList";
+		
+	}
+
+	public String toEdit() throws Exception {
+		//调用service根据id获取对象
+		System.out.println(customer.getCust_id()+"--------------------------------------------------------");
+		Customer c = customerService.getById(customer.getCust_id());
+		//将客户id放到request域中，并转发到编辑页面
+		ActionContext.getContext().put("customer", c);
+		
+		return "edit";
+		
+	}
+	
+	public void setCustomerService(CustomerService customerService) {
+		this.customerService = customerService;
+	}
+
+	@Override
+	public Customer getModel() {
+		return customer;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+	}
+
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
+
+	public void setFileFileName(String fileFileName) {
+		this.fileFileName = fileFileName;
+	}
+
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
+	}
+
+}

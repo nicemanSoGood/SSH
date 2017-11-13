@@ -1,0 +1,18 @@
+package com.ihtc.service;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.User;
+import com.ihtc.dao.UserDao;
+
+public class UserServiceImpl extends BaseDaoImpl<User> implements UserService {
+
+	private UserDao userDao;
+	
+	@Override
+	public void saveUser(User user) {
+		
+		User exsitU = userDao.getByUserCode(usercode);
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import com.ihtc.baseDao.BaseDao;
+import com.ihtc.bean.BaseDict;
+
+public interface BaseDictDao extends BaseDao<BaseDict>{
+	//根据字典获取数据字典列表
+	List<BaseDict> getListByTypeCode(String dict_type_code);
+
+}

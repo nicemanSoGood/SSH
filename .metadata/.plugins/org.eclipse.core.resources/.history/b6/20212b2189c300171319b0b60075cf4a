@@ -1,0 +1,18 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.BaseDict;
+
+public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDao {
+
+	@Override
+	public List<BaseDict> getListByTypeCode(String dict_type_code) {
+
+		
+		
+		return null;
+	}
+
+}

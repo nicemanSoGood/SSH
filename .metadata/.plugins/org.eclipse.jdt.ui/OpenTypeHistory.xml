@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=day01/src&lt;com.ihtc.service{StudentService.java[StudentService" modifiers="513" timestamp="1509500264846"/>
+<typeInfo handle="=SSHProject01/src&lt;com.ihtc.dao{CustomerDao.java[CustomerDao" modifiers="513" timestamp="1509969048696"/>
+<typeInfo handle="=SSHProject01/src&lt;com.ihtc.service{BaseDictService.java[BaseDictService" modifiers="513" timestamp="1510037393745"/>
+<typeInfo handle="=SSHProject01/src&lt;com.ihtc.dao{BaseDictDao.java[BaseDictDao" modifiers="513" timestamp="1510037650114"/>
+<typeInfo handle="=SSHProject01/src&lt;com.ihtc.baseDao{BaseDaoImpl.java[BaseDaoImpl" modifiers="1" timestamp="1510145323800"/>
+<typeInfo handle="=SSHProject01/src&lt;com.ihtc.service{UserService.java[UserService" modifiers="513" timestamp="1510299490926"/>
 </typeInfoHistroy>

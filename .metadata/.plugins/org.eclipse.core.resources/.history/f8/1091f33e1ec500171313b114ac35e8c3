@@ -1,0 +1,15 @@
+package com.ihtc.service;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.LinkMan;
+
+public class LinkManServiceImpl implements LinkManService {
+
+	
+	
+	@Override
+	public void save(LinkMan linkMan) {
+		
+	}
+
+}

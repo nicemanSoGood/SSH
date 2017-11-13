@@ -1,0 +1,25 @@
+package com.ihtc.action;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BaseDictAction extends ActionSupport {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public String execute() throws Exception {
+		
+		//调用Service根据typecode获得字典数据对象list
+		//将list转换为json格式
+		//将json发送给浏览器
+		
+		
+		return super.execute();
+	}
+
+	
+	
+}

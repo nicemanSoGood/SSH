@@ -1,0 +1,41 @@
+package com.ihtc.action;
+
+import com.ihtc.bean.LinkMan;
+import com.ihtc.service.LinkManService;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private LinkMan linkMan = new LinkMan();
+	
+	private LinkManService linkManService;
+	
+	@Override
+	public LinkMan getModel() {
+		return linkMan;
+	}
+
+	public String add() throws Exception{
+		
+		linkManService.save(linkMan);
+		return "toList";
+		
+	}
+
+	public String list() throws Exception{
+		
+		return null;
+		
+	}
+
+	public void setLinkManService(LinkManService linkManService) {
+		this.linkManService = linkManService;
+	}
+	
+}

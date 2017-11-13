@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+	<class name="com.ithc.bean.Customer" table="cst_customer">
+		<id name="cust_id" column="cust_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="cust_name" column="cust_name"></property>
+		<property name="cust_user_id" column="cust_user_id"></property>
+		<property name="cust_create_id" column="cust_create_id"></property>
+		<!-- <property name="cust_source" column="cust_source"></property>
+		<property name="cust_industry" column="cust_industry"></property>
+		<property name="cust_level" column="cust_level"></property> -->
+		<property name="cust_linkman" column="cust_linkman"></property>
+		<property name="cust_phone" column="cust_phone"></property>
+		<property name="cust_mobile" column="cust_mobile"></property>
+		<!--上传文件保存路径  -->
+		<property name="filePath" column="filePath"></property>
+		<!-- 配置三个多对一 -->
+		<many-to-one name="source" class="com.ithc.bean.Dict" column="cust_source"></many-to-one>
+		<many-to-one name="industry" class="com.ithc.bean.Dict" column="cust_industry"></many-to-one>
+		<many-to-one name="level" class="com.ithc.bean.Dict" column="cust_level"></many-to-one>
+		
+		<set name="linkmans" inverse="true" cascade="delete">
+			<key column="lkm_cust_id"/>
+			<one-to-many class="com.ithc.bean.Linkman"/>
+		</set>
+		
+		<set name="visit" inverse="true" cascade="delete">
+			<key column="visit_cust_id"/>
+			<one-to-many class="com.ithc.bean.Visit"/>
+		</set>
+		
+	</class>
+	
+</hibernate-mapping>    

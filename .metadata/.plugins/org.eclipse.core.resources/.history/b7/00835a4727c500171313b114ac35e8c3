@@ -1,0 +1,17 @@
+package com.ihtc.service;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import com.ihtc.bean.Customer;
+import com.ihtc.bean.LinkMan;
+import com.ihtc.bean.PageBean;
+
+public interface LinkManService {
+
+	PageBean getPageBean(DetachedCriteria criteria, Integer currentPage, Integer pageSize);
+
+	void save(LinkMan linkMan);
+
+	Customer getById(Long cust_id);
+	
+}

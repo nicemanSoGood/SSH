@@ -1,7 +1,0 @@
-package com.ihtc.dao;
-
-public interface StudentDao {
-
-	void insert();
-	
-}

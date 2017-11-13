@@ -1,0 +1,9 @@
+package com.ihtc.service;
+
+import com.ihtc.bean.LinkMan;
+
+public interface LinkManService extends BaseDao{
+
+	public void save(LinkMan linkMan);
+
+}

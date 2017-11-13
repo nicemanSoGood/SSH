@@ -1,0 +1,36 @@
+package com.ihtc.dao;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import com.ihtc.baseDao.BaseDaoImpl;
+import com.ihtc.bean.User;
+
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+
+	@Override
+	public User getByUserCode(String usercode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean checkCode(String user_code) {
+		@SuppressWarnings("unchecked")
+		List<User> list = (List<User>) this.getHibernateTemplate().find("from User where user_code = ?",user_code);
+		
+		if(list!=null && list.size()>0){
+			//存在
+			return false;
+		}
+		//不存在
+		return true;
+	}
+
+	@Override
+	public User login(User user) {
+		return this.getHibernateTemplate().find("from User where user_code = ? and user_password=? and user_state = ?",user.getUser_code(),user.getUser_password(),"1");
+	}
+
+}

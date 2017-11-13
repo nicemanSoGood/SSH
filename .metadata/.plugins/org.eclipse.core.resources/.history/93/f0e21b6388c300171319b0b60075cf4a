@@ -1,0 +1,16 @@
+package com.ihtc.service;
+
+import java.util.List;
+
+import com.ihtc.bean.BaseDict;
+
+public class BaseDictServiceImpl implements BaseDictService {
+
+	private BaseDictDao baseDictDao;
+	
+	@Override
+	public List<BaseDict> getListByTypeCode(String dict_type_code) {
+		return baseDictDao.getListByTypeCode(dict_type_code);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.ihtc.dao;
+
+import com.ihtc.baseDao.BaseDao;
+import com.ihtc.bean.BaseDict;
+
+public interface BaseDictDao extends BaseDao<BaseDict>{
+
+	
+	
+}
